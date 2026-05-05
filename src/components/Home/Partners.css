@@ -1,24 +1,43 @@
 .partners {
-  background: #000;
-  padding: 3rem 2rem;
+  padding: clamp(60px, 8vw, 100px) 24px;
   text-align: center;
 }
+
 .partners h3 {
-  color: #dc2626;
-  margin-bottom: 2rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  color: var(--nv-gray-300);
+  text-transform: uppercase;
+  margin-bottom: 36px;
 }
+
 .partner-logos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
+  max-width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
 }
+
 .partner {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #aaa;
-  transition: color 0.2s;
+  padding: 22px 18px;
+  background: var(--grad-card);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-md);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.1em;
+  color: var(--nv-gray-200);
+  text-transform: uppercase;
+  transition: all 0.35s var(--ease-out);
+  backdrop-filter: blur(8px);
 }
+
 .partner:hover {
-  color: #dc2626;
+  transform: translateY(-4px);
+  border-color: rgba(225, 29, 42, 0.3);
+  color: #fff;
+  background: linear-gradient(160deg, rgba(225, 29, 42, 0.1), rgba(255, 255, 255, 0.02));
+  box-shadow: var(--shadow-md);
 }

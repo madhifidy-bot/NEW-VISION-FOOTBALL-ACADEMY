@@ -17,24 +17,28 @@ const Newsletter = () => {
 
   return (
     <section className="newsletter">
-      <h3>📧 NEWSLETTER</h3>
-      <p>Sign up for the NewVision Global Academy newsletter – exclusive news, camp updates, and more.</p>
+      <h3>📧 Join Our Newsletter</h3>
+      <p>
+        Sign up for New Vision Football Academy updates — exclusive news, camp
+        announcements, and behind-the-scenes stories from our rising stars.
+      </p>
       <form onSubmit={handleSubmit}>
         <input
           type="email"
-          placeholder="E-Mail Address*"
+          placeholder="Your email address"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
         <div className="consent">
           <label>
-            <input type="checkbox" required /> I consent to receive personalised emails.
+            <input type="checkbox" required />
+            I consent to receive personalised emails.
           </label>
         </div>
-        <button type="submit">SUBSCRIBE NOW →</button>
+        <button type="submit">Subscribe Now →</button>
       </form>
-      {subscribed && <p className="success">Thank you! Check your inbox.</p>}
+      {subscribed && <p className="success">✅ Thank you! Check your inbox.</p>}
     </section>
   );
 };

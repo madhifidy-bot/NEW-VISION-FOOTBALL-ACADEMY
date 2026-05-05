@@ -1,112 +1,145 @@
 .programs-page {
-  padding-top: 0;
+  min-height: 100vh;
 }
-.programs-content {
-  padding: 4rem 2rem;
+
+.programs-page .programs-content {
+  padding: clamp(60px, 8vw, 100px) 24px;
+}
+
+.programs-page .programs-content .container {
   max-width: 1000px;
   margin: 0 auto;
 }
+
 .program-detail {
-  background: #111;
-  border-radius: 16px;
-  padding: 2rem;
-  margin-bottom: 2rem;
-  border: 1px solid #222;
-  transition: all 0.2s;
+  padding: 36px 36px;
+  margin-bottom: 26px;
+  background: var(--grad-card);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s var(--ease-out);
+  scroll-margin-top: 100px;
 }
+
+.program-detail::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--grad-red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s var(--ease-out);
+}
+
 .program-detail:hover {
-  border-color: #dc2626;
+  transform: translateY(-4px);
+  border-color: rgba(225, 29, 42, 0.3);
+  box-shadow: var(--shadow-md);
 }
+
+.program-detail:hover::before {
+  transform: scaleX(1);
+}
+
 .program-detail h3 {
-  font-size: 1.3rem;
-  color: #dc2626;
-  margin-bottom: 1rem;
+  font-size: clamp(1.3rem, 2.3vw, 1.7rem);
+  margin-bottom: 18px;
+  color: #fff;
+  letter-spacing: 0.03em;
 }
+
 .program-meta {
   display: flex;
-  gap: 1.5rem;
   flex-wrap: wrap;
-  margin-bottom: 1rem;
-  font-size: 0.85rem;
-  color: #9ca3af;
+  gap: 10px;
+  margin-bottom: 20px;
 }
+
+.program-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--nv-gray-200);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 99px;
+}
+
 .program-detail p {
-  color: #d1d5db;
-  line-height: 1.6;
+  color: var(--nv-gray-200);
+  font-size: 1rem;
+  line-height: 1.75;
 }
-/* Gallery styles – best card design */
+
+/* Gallery */
 .gallery-grid-container {
-  margin-top: 2.5rem;
-  background: linear-gradient(145deg, #1a2f2e, #0b1f1d);
-  border-radius: 2rem;
-  padding: 2rem;
-  box-shadow: 0 20px 30px rgba(0,0,0,0.3);
+  margin-top: 50px;
+  padding: 30px 0;
+  animation: fadeUp 0.5s var(--ease-out);
 }
 
 .gallery-heading {
+  font-size: clamp(1.4rem, 3vw, 2rem);
   text-align: center;
-  font-size: 2rem;
-  color: #f5c542;
-  margin-bottom: 1.5rem;
-  letter-spacing: 2px;
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+  margin-bottom: 30px;
+  color: #fff;
 }
 
 .photo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 18px;
 }
 
 .photo-card {
-  background: rgba(0,0,0,0.3);
-  border-radius: 1.2rem;
+  position: relative;
+  border-radius: var(--radius-md);
   overflow: hidden;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+  aspect-ratio: 4/3;
+  transition: all 0.4s var(--ease-out);
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .photo-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 18px 28px rgba(0,0,0,0.6);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: var(--shadow-lg), 0 0 30px rgba(225, 29, 42, 0.15);
+  border-color: rgba(225, 29, 42, 0.3);
 }
 
 .photo-card img {
   width: 100%;
-  height: 220px;
+  height: 100%;
   object-fit: cover;
-  display: block;
-  transition: transform 0.4s;
+  transition: transform 0.6s var(--ease-out);
 }
 
 .photo-card:hover img {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 .photo-caption {
-  background: rgba(0,0,0,0.7);
-  text-align: center;
-  padding: 0.6rem;
-  color: #ffd966;
-  font-size: 1.3rem;
-  font-weight: bold;
-  backdrop-filter: blur(4px);
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  padding: 6px 14px;
+  background: rgba(5, 6, 7, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 99px;
+  font-size: 0.9rem;
+  backdrop-filter: blur(8px);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .gallery-grid-container {
-    padding: 1rem;
-  }
-  .photo-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 0.8rem;
-  }
-  .photo-card img {
-    height: 150px;
-  }
-  .gallery-heading {
-    font-size: 1.5rem;
+@media (max-width: 560px) {
+  .program-detail {
+    padding: 28px 22px;
   }
 }

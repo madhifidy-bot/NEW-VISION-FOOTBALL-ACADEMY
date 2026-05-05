@@ -1,27 +1,46 @@
 .carousel-container {
-  width: 100%;
-  overflow: hidden;          /* hide the overflow so only one set is visible */
-  background: #0a0a0a;
-  padding: 1rem 0;
+  padding: clamp(40px, 6vw, 80px) 0;
+  overflow: hidden;
   position: relative;
+  mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
 }
 
 .carousel-track {
-  display: inline-flex;
-  gap: 1.5rem;
-  animation: scroll-left 20s linear infinite;
-  width: max-content;        /* ensures track width is based on content */
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  scroll-behavior: auto;
+  padding: 10px 20px;
+  scrollbar-width: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
 }
 
 .carousel-slide {
-  width: 300px;
-  height: 200px;
   flex: 0 0 auto;
-  border-radius: 12px;
+  width: clamp(240px, 25vw, 340px);
+  height: clamp(160px, 18vw, 220px);
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  background: #1a1a1a;
-  border: 1px solid #333;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.4s var(--ease-out);
+}
+
+.carousel-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(5, 6, 7, 0.7) 100%);
+  pointer-events: none;
+}
+
+.carousel-slide:hover {
+  transform: translateY(-6px) scale(1.02);
 }
 
 .carousel-slide img {
@@ -29,14 +48,9 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.6s var(--ease-out);
 }
 
-/* Keyframes – moves the track left by 50% of its width */
-@keyframes scroll-left {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+.carousel-slide:hover img {
+  transform: scale(1.08);
 }

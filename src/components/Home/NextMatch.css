@@ -1,36 +1,138 @@
 .next-match {
+  padding: clamp(70px, 8vw, 110px) 24px;
   text-align: center;
-  padding: 3rem 2rem;
-  background: #000;
-  border-top: 1px solid #dc2626;
+  position: relative;
+  overflow: hidden;
 }
+
+.next-match-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: clamp(40px, 5vw, 60px);
+  background:
+    radial-gradient(600px 300px at 50% 0%, rgba(225, 29, 42, 0.3), transparent 70%),
+    linear-gradient(160deg, rgba(225, 29, 42, 0.12) 0%, rgba(11, 13, 16, 0.9) 50%, rgba(5, 6, 7, 0.95) 100%);
+  border: 1px solid rgba(225, 29, 42, 0.25);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg), 0 0 60px rgba(225, 29, 42, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.next-match-inner::before {
+  content: "⚽";
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  font-size: 180px;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
 .next-match h2 {
-  color: #dc2626;
-  margin-bottom: 1rem;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  margin-bottom: 10px;
+  letter-spacing: 0.05em;
 }
+
+.next-match-subtitle {
+  color: var(--nv-red-bright);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
 .countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  max-width: 560px;
+  margin: 0 auto 36px;
+}
+
+.countdown > div {
+  padding: 24px 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
   display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-bottom: 1.5rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s var(--ease-out);
 }
-.countdown div {
-  background: #1a1a1a;
-  padding: 1rem;
-  border-radius: 12px;
-  min-width: 80px;
+
+.countdown > div:hover {
+  border-color: rgba(225, 29, 42, 0.4);
+  transform: translateY(-3px);
 }
+
 .countdown span {
-  font-size: 2rem;
-  font-weight: bold;
-  display: block;
-  color: #dc2626;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+  background: linear-gradient(180deg, #fff 0%, #ff6b77 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  min-width: 50px;
 }
+
 .countdown small {
   font-size: 0.7rem;
-  color: #aaa;
+  letter-spacing: 0.2em;
+  color: var(--nv-gray-300);
+  text-transform: uppercase;
 }
-.match-info p {
-  color: #ccc;
-  margin: 0.3rem 0;
+
+.match-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--nv-gray-200);
+}
+
+.match-info p:first-child {
+  font-size: 0.82rem;
+  letter-spacing: 0.2em;
+  color: var(--nv-gray-300);
+  text-transform: uppercase;
+}
+
+.match-info p:nth-child(2) {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.04em;
+}
+
+.matchplan-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--nv-red-bright);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: all 0.3s var(--ease-out);
+  cursor: pointer;
+}
+
+.matchplan-link:hover {
+  color: #fff;
+  letter-spacing: 0.22em;
+}
+
+@media (max-width: 480px) {
+  .countdown {
+    gap: 8px;
+  }
+  .countdown > div {
+    padding: 18px 6px;
+  }
 }

@@ -1,36 +1,202 @@
-* {
+/* ==========================================================================
+   NewVision Football Academy — Premium Global Styles
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;600;700;800;900&display=swap');
+
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Inter', 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: #0a0a0a;
-  color: #ffffff;
-  line-height: 1.5;
-  overflow-x: hidden;
+:root {
+  /* Brand palette */
+  --nv-red: #e11d2a;
+  --nv-red-bright: #ff2a3a;
+  --nv-red-dark: #991b1b;
+  --nv-gold: #f5c542;
+  --nv-black: #050607;
+  --nv-dark: #0b0d10;
+  --nv-gray-900: #111418;
+  --nv-gray-800: #181c22;
+  --nv-gray-700: #23282f;
+  --nv-gray-600: #3a4049;
+  --nv-gray-300: #b7bcc4;
+  --nv-gray-200: #d8dce2;
+  --nv-white: #ffffff;
+
+  /* Gradients */
+  --grad-red: linear-gradient(135deg, #ff2a3a 0%, #e11d2a 45%, #991b1b 100%);
+  --grad-red-gold: linear-gradient(135deg, #ff2a3a 0%, #f5c542 100%);
+  --grad-dark: linear-gradient(180deg, #050607 0%, #0b0d10 100%);
+  --grad-card: linear-gradient(160deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+  --grad-hero: linear-gradient(120deg, rgba(5,6,7,0.95) 0%, rgba(11,13,16,0.65) 45%, rgba(225,29,42,0.35) 100%);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 28px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.6);
+  --shadow-red: 0 12px 40px rgba(225, 29, 42, 0.35);
+  --shadow-red-strong: 0 16px 60px rgba(225, 29, 42, 0.55);
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 32px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* Layout */
+  --container: 1240px;
+  --navbar-h: 76px;
 }
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
-/* Bayern red accent */
-:root {
-  --bayern-red: #dc2626;
-  --bayern-dark-red: #991b1b;
-  --bayern-black: #0a0a0a;
-  --bayern-gray: #1a1a1a;
+body {
+  font-family: 'Inter', 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--nv-black);
+  color: var(--nv-white);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image:
+    radial-gradient(1200px 600px at 80% -10%, rgba(225, 29, 42, 0.18), transparent 60%),
+    radial-gradient(900px 500px at -10% 30%, rgba(245, 197, 66, 0.06), transparent 60%),
+    var(--grad-dark);
+  background-attachment: fixed;
 }
 
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s var(--ease-out);
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  background: none;
+  color: inherit;
+}
+
+input, textarea, select {
+  font-family: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', 'Inter', sans-serif;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+/* Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
+  height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #1a1a1a;
+  background: var(--nv-gray-900);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--bayern-red);
-  border-radius: 4px;
+  background: linear-gradient(180deg, var(--nv-red), var(--nv-red-dark));
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--nv-red-bright);
+}
+
+/* Selection */
+::selection {
+  background: var(--nv-red);
+  color: #fff;
+}
+
+/* Utility */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  text-align: center;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #fff 0%, #d8dce2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.02em;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 4px;
+  background: var(--grad-red);
+  border-radius: 99px;
+  margin: 18px auto 0;
+  box-shadow: 0 0 20px rgba(225, 29, 42, 0.6);
+}
+
+/* Reveal animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(225, 29, 42, 0.5), 0 10px 30px rgba(225, 29, 42, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(225, 29, 42, 0), 0 10px 30px rgba(225, 29, 42, 0.45);
+  }
+}
+@keyframes shimmer {
+  0% { background-position: -500px 0; }
+  100% { background-position: 500px 0; }
+}
+@keyframes kenBurns {
+  0% { transform: scale(1.05) translate(0, 0); }
+  100% { transform: scale(1.15) translate(-1%, -2%); }
+}
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Responsive base */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 18px;
+  }
 }
