@@ -1,0 +1,87 @@
+.hero {
+  height: 100vh;
+  min-height: 600px;
+  background: url('https://1drv.ms/f/c/6230e4416e19eeff/IgD_7hluQeQwIIBiaQAAAAAAAYGKvnOBCBf7jAl5MQuccT8?e=M1DYRl') center/cover no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  padding: 2rem;
+}
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #dc2626;
+}
+@media (min-width: 768px) {
+  .hero-content h1 { font-size: 4.5rem; }
+}
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #f3f4f6;
+}
+.hero-description {
+  font-size: 1rem;
+  color: #d1d5db;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn-primary, .btn-secondary {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  border-radius: 40px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.btn-primary {
+  background: #dc2626;
+  color: #fff;
+  border: none;
+}
+.btn-primary:hover {
+  background: #b91c1c;
+  transform: scale(1.02);
+}
+.btn-secondary {
+  background: transparent;
+  border: 2px solid #dc2626;
+  color: #fff;
+}
+.btn-secondary:hover {
+  background: #dc2626;
+}
+.hero-scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: #fff;
+  animation: bounce 1.5s infinite;
+}
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}

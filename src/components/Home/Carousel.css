@@ -1,0 +1,42 @@
+.carousel-container {
+  width: 100%;
+  overflow: hidden;          /* hide the overflow so only one set is visible */
+  background: #0a0a0a;
+  padding: 1rem 0;
+  position: relative;
+}
+
+.carousel-track {
+  display: inline-flex;
+  gap: 1.5rem;
+  animation: scroll-left 20s linear infinite;
+  width: max-content;        /* ensures track width is based on content */
+}
+
+.carousel-slide {
+  width: 300px;
+  height: 200px;
+  flex: 0 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Keyframes – moves the track left by 50% of its width */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

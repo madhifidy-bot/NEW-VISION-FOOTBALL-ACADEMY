@@ -1,0 +1,34 @@
+.about-page {
+  padding-top: 0;
+}
+.page-hero {
+  background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+  text-align: center;
+  padding: 4rem 2rem 2rem;
+  border-bottom: 1px solid #dc2626;
+}
+.page-hero h1 {
+  font-size: 2.5rem;
+  color: #dc2626;
+  margin-bottom: 0.5rem;
+}
+.page-hero p {
+  color: #9ca3af;
+}
+.about-content {
+  padding: 4rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.about-section {
+  margin-bottom: 3rem;
+}
+.about-section h2 {
+  font-size: 1.5rem;
+  color: #dc2626;
+  margin-bottom: 1rem;
+}
+.about-section p {
+  color: #d1d5db;
+  line-height: 1.6;
+}

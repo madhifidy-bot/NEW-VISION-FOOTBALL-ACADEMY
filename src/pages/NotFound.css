@@ -1,0 +1,17 @@
+.not-found {
+  text-align: center;
+  padding: 6rem 2rem;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.not-found h1 {
+  font-size: 6rem;
+  color: #dc2626;
+}
+.not-found p {
+  color: #9ca3af;
+  margin-bottom: 2rem;
+}

@@ -1,0 +1,47 @@
+.schedule-honours {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+  background: #0a0a0a;
+  padding: 3rem 2rem;
+  border-top: 1px solid #222;
+}
+.schedule, .honours {
+  flex: 1;
+  background: #111;
+  padding: 1.5rem;
+  border-radius: 16px;
+}
+.schedule h3, .honours h3 {
+  color: #dc2626;
+  margin-bottom: 1rem;
+}
+.schedule-item {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+  color: #ccc;
+}
+.schedule-item .date {
+  font-weight: bold;
+  min-width: 100px;
+}
+.honours ul {
+  list-style: none;
+}
+.honours li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  color: #ccc;
+}
+.honours .count {
+  color: #dc2626;
+  font-weight: bold;
+}
+@media (max-width: 768px) {
+  .schedule-honours {
+    flex-direction: column;
+  }
+}
