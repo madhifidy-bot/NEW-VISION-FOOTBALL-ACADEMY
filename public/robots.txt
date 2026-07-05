@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://new-vision-football-academy.netlify.app/sitemap.xml
