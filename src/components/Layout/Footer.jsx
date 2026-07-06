@@ -12,7 +12,7 @@ const Footer = () => {
         <div className="footer-section footer-brand">
           <h3>
             <span className="brand-accent">NEW -</span>VISION
-            <span className="brand-light"> ACADEMY</span>
+            <span className="brand-light"> FOOTBALL-ACADEMY</span>
           </h3>
           <p>
             Developing the next generation of football talent through elite training,
